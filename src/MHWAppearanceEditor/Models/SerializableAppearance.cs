@@ -21,7 +21,6 @@ namespace MHWAppearanceEditor.Models
         public byte? Age { get; set; }
         public byte? NoseHeight { get; set; }
         public byte? MouthHeight { get; set; }
-
         public byte? BrowType { get; set; }
         public byte? FaceType { get; set; }
         public byte? EyeType { get; set; }

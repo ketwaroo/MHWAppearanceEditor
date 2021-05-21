@@ -32,6 +32,22 @@ namespace MHWAppearanceEditor.Helpers
             else if (b.Length == 3)
                 return Color.FromRgb(b[0], b[1], b[2]);
             return default;
+        } 
+        // could be done simpler but c# be weird?
+        public static byte sliderPercentageToByte(int pctValue)
+        {
+            // c# can't do math simply...
+            decimal con255 = (255 * (((decimal)pctValue+50)%100)) / 100;
+            int shifted = (int)Math.Round(con255,MidpointRounding.AwayFromZero);
+            return (byte)shifted;
+        } 
+        public static int byteToSliderPercentage(byte byteValue)
+        {
+            // probably could be done simpler.
+            int tmp = (int)byteValue;
+            decimal tmp2 = ((decimal)tmp + 127) % 255;
+            var converted = Math.Round(100 * tmp2 / 255, MidpointRounding.AwayFromZero);
+            return (int)converted;
         }
     }
 }

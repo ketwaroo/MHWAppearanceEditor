@@ -31,10 +31,23 @@ namespace MHWAppearanceEditor.ViewModels.Tabs
         public int Zenny { get => SaveSlot.Zenny; set => SaveSlot.Zenny = value; }
         public int ResearchPoints { get => SaveSlot.ResearchPoints; set => SaveSlot.ResearchPoints = value; }
         public TimeSpan PlayTime { get => TimeSpan.FromSeconds(SaveSlot.PlayTime); }
-        public byte NoseHeight { get => SaveSlot.CharacterAppearance.NoseHeight; set => SaveSlot.CharacterAppearance.NoseHeight = value; }
-        public byte MouthHeight { get => SaveSlot.CharacterAppearance.MouthHeight; set => SaveSlot.CharacterAppearance.MouthHeight = value; }
-        public byte EyeWidth { get => SaveSlot.CharacterAppearance.EyeWidth; set => SaveSlot.CharacterAppearance.EyeWidth = value; }
-        public byte EyeHeight { get => SaveSlot.CharacterAppearance.EyeHeight; set => SaveSlot.CharacterAppearance.EyeHeight = value; }
+        public int NoseHeight
+        {
+            get => Helpers.Utility.byteToSliderPercentage(SaveSlot.CharacterAppearance.NoseHeight);
+            set => SaveSlot.CharacterAppearance.NoseHeight = Helpers.Utility.sliderPercentageToByte(value);
+        }
+        public int MouthHeight { 
+            get => Helpers.Utility.byteToSliderPercentage(SaveSlot.CharacterAppearance.MouthHeight); 
+            set => SaveSlot.CharacterAppearance.MouthHeight = Helpers.Utility.sliderPercentageToByte(value); 
+        }
+        public int EyeWidth {
+            get => Helpers.Utility.byteToSliderPercentage(SaveSlot.CharacterAppearance.EyeWidth);
+            set => SaveSlot.CharacterAppearance.EyeWidth = Helpers.Utility.sliderPercentageToByte(value); 
+        }
+        public int EyeHeight { 
+            get => Helpers.Utility.byteToSliderPercentage(SaveSlot.CharacterAppearance.EyeHeight);
+            set => SaveSlot.CharacterAppearance.EyeHeight = Helpers.Utility.sliderPercentageToByte(value);
+        }
         public byte Age { get => SaveSlot.CharacterAppearance.Age; set => SaveSlot.CharacterAppearance.Age = value; }
         public byte Wrinkles { get => SaveSlot.CharacterAppearance.Wrinkles; set => SaveSlot.CharacterAppearance.Wrinkles = value; }
         public byte SkinColorX { get => SaveSlot.CharacterAppearance.SkinColorX; set => SaveSlot.CharacterAppearance.SkinColorX = value; }
